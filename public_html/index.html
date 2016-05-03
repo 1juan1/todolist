@@ -1,34 +1,119 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!DOCTYPE html>
+ <html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/blog.css">
+        <link rel="icon" href="data:;base64,iVBORwOKGgo=">
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body>
-         <header>
-            <nav class="grey">
+        <header>
+            <nav class="#1e88e5 blue darken-1">
                 <div class="nav-wrapper">
-                    <center><a href="#" class="brand-logo">Blog</a></center>
+                    <center><a href="#" class="brand-logo"> Todo List</a></center>
                     <ul class="left">
                         <li><a href="index.html">Home</a></li> 
                         <li><a href="admin.html">Admin</a></li>  
-                     
+                        <li><a href="task.html"> Add task</a></li> 
+
                     </ul>
-                   
-  
+
+
                 </div>
             </nav>
-            
+
         </header>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <h1 class="center-align"> My To do list</h1>
+                </div>
+      <table>
+          <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Item Name</th>
+              <th data-field="price">Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+      </table> 
+                <div class="row">
+                    <div class="col s12 main-container">
+                        <div class="blog-post">
+                            <h2 class="blog-post-title">My Todo Post</h2> 
+                            <p class="blog-post-meta">At by</p>
+                            <div>my first Todo content</div>   
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </main>
+
+        <footer class="page-footer #42a5f5 blue lighten-1">
+            <div class="container">
+                <p><a href="#">back to the top</a></p>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container, #0d47a1 blue darken-4">
+                    @2016 Juan Yepez 
+                </div>
+            </div>
+        </footer>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="libs/backendless.js"></script>
+        <script type="text/javascript" src="js/blog.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+        <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+
+        <script id="blogs-template" type="text/x-handlebars-template">      
+        {{#each posts}}
+             <div class="blog-post">
+                  <h2 class="blog-post-title">{{title}}</h2>
+                  <p class="blog-post-meta">At {{format created}}By {{authorEmail}}</p>
+                  <div>{{content}}</div>
+          <button class="btn btn-large waves-effect waves-light darken-1  blue white-out-post" > check as complete</button>
+          <button class="btn btn-large waves-effect waves-light darken-1 trash blue" type="submit" name="action" data={{objectId}}>delete</button>
+             </div>
+        {{/each}}
+        </script>
+        <script id="check-done-template" type="text/x-handlebars-template">
+                    <div class="white-text">
+                    <h4 class="blog-post-meta italic">This todo list has been marked</h4>
+                    <button class="btn btn-small waves-effect waves-light white-in-post orange"><a href="index.html"> uncheck</a><button>
+                    <button class="btn btn-small waves-effect waves-light white-in-post orange"> Log in </button>
+            
+            </div>                    
+        </script>
     </body>
-    
-  </html> 
+
+</html> 
